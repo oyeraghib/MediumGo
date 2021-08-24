@@ -17,6 +17,6 @@ dependencies {
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
     //test
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.12'
 
 }

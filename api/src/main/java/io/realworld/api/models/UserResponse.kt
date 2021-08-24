@@ -1,11 +1,11 @@
-package com.example.api.models
+package io.realworld.api.models
 
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Error(
-    @Json(name = "body")
-    val body: List<String>
+data class UserResponse(
+    @Json(name = "user")
+    val user: User?
 )
