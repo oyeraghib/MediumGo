@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable/sample_profile.xml" value="0.2601851851851852" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/content_main.xml" value="0.1453804347826087" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_feed.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_home.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_slideshow.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/list_item_article.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/nav_header_main.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/menu/activity_main_drawer.xml" value="0.6" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

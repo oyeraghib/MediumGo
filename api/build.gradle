@@ -10,11 +10,19 @@ java {
 }
 
 dependencies {
+    //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    //Retrofit
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    //Converter Moshi
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    //Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
     //test
     testImplementation 'junit:junit:4.12'
