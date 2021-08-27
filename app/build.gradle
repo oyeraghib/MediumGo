@@ -52,6 +52,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
 
     implementation project(":api")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 
     //test
