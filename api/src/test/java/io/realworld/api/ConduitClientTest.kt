@@ -62,8 +62,7 @@ class ConduitClientTest {
 
             val userCreds = UserCreds(
                 email = "testemail${Random.nextInt(999, 9999)}@test.com",
-                password = "pass${Random.nextInt(999,99999)}",
-                username = "rand_user${Random.nextInt(999, 9999)}"
+                password = "pass${Random.nextInt(999,99999)}"
             )
 
             val resp = conduitClient.api.signupUser(SignupRequest(userCreds))

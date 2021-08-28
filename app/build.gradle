@@ -56,7 +56,7 @@ dependencies {
 
 
     //test
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.12'
 
     //instrumentation test
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

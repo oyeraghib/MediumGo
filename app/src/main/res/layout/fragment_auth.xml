@@ -2,10 +2,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/authFragmentNavHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph = "@navigation/navigation_auth"/>
 
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/auth_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
@@ -13,14 +24,16 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_menu_auth_signup"
-            android:text="SignUp" />
+            android:icon="@drawable/ic_menu_auth_login"
+            android:text="Login"
+            />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_menu_auth_login"
-            android:text="Login" />
+            android:icon="@drawable/ic_menu_auth_signup"
+            android:text="SignUp"
+           />
 
     </com.google.android.material.tabs.TabLayout>
 </FrameLayout>
