@@ -1,4 +1,4 @@
-package com.example.mediumclone.ui.auth
+package com.example.mediumclone
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import com.example.mediumclone.R
 import com.example.mediumclone.databinding.FragmentAuthBinding
 import com.google.android.material.tabs.TabLayout
 

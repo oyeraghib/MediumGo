@@ -1,27 +1,50 @@
 package io.realworld.api
 
 import io.realworld.api.service.ConduitAPI
+import io.realworld.api.service.ConduitAuthAPI
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-class ConduitClient {
+object ConduitClient {
 
-    val OkHttpClient = okhttp3.OkHttpClient.Builder()
-        .connectTimeout(1, TimeUnit.MINUTES)
-        .readTimeout(1,TimeUnit.MINUTES)
+    var authToken: String? = null
+
+    private val authInterceptor = Interceptor { chain ->
+        var req = chain.request()
+        authToken?.let {
+            req = req.newBuilder()
+                .header("Authorization", "Token$it")
+                .build()
+        }
+        chain.proceed(req)
+    }
+
+
+    val okHttpBuilder = OkHttpClient.Builder()
+        .readTimeout(5, TimeUnit.SECONDS)
+        .connectTimeout(2, TimeUnit.SECONDS)
         .build()
 
-    val retrofit = Retrofit.Builder()
+    val retrofitBuilder = Retrofit.Builder()
         .baseUrl("https://conduit.productionready.io/api/")
         .addConverterFactory(MoshiConverterFactory.create())
-        .client(OkHttpClient)
+
+
+    val publicApi = retrofitBuilder
+        .client(okHttpBuilder)
         .build()
+        .create(ConduitAPI::class.java)
 
-
-    val api = retrofit.create(ConduitAPI::class.java)
-
-
+    val authApi = retrofitBuilder
+        .client(okHttpBuilder)
+        .build()
+        .create(ConduitAuthAPI::class.java)
 
 }
+
+
+
+

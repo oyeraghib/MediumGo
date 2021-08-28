@@ -7,13 +7,25 @@ import io.realworld.api.models.responses.UserResponse
 
 object UserRepo {
 
-    val api = ConduitClient().api
+    val api = ConduitClient.publicApi
+
+    val authAPI = ConduitClient.authApi
 
     suspend fun login(email: String, password: String): UserResponse? {
 
         val response = api.loginUser(LoginRequest(LoginData(email, password)))
-        return response?.body()
+
+        ConduitClient.authToken = response?.body()?.user?.token
+
+            return response?.body()
 
     }
+
+//    suspend fun signUp(){
+//
+//        val response = authAPI.getCurrentUser()
+//
+//        return response?.body()
+//    }
 
 }

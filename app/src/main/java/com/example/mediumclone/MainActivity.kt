@@ -48,29 +48,28 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-//
+
         authViewModel.user.observe({ lifecycle }) {
-////            updateMenu(it)
-                Toast.makeText(this, "Logged in as ${it?.username}", Toast.LENGTH_LONG).show()
+            updateMenu(it)
             navController.navigateUp()
             }
     }
-//
-//    private fun updateMenu(user: User?){
-//
-//        when(user){
-//
-//            is User ->{
-//                binding.navView.menu.clear()
-//                binding.navView.inflateMenu(R.menu.activity_main_user)
-//            }
-//
-//            else -> {
-//                binding.navView.inflateMenu(R.menu.activity_main_guest)
-//            }
-//        }
-//
-//    }
+
+    private fun updateMenu(user: User?){
+
+        when(user){
+
+            is User ->{
+                binding.navView.menu.clear()
+                binding.navView.inflateMenu(R.menu.activity_main_user)
+            }
+
+            else -> {
+                binding.navView.inflateMenu(R.menu.activity_main_guest)
+            }
+        }
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
