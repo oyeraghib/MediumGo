@@ -36,7 +36,7 @@ interface ConduitAuthAPI {
     )
 
     @GET("articles/feed")
-    suspend fun getFeedArticles(): Response<ArticleResponse>
+    suspend fun getFeedArticles(): Response<ArticlesResponse>
 
     @POST("article/{slug}/favorite")
     suspend fun favoriteArticle(

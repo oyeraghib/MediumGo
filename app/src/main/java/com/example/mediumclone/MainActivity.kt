@@ -2,7 +2,6 @@ package com.example.mediumclone
 
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -39,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_feed,
+                R.id.nav_global_feed,
+                R.id.nav_my_feed,
                 R.id.nav_auth
             ), drawerLayout
         )

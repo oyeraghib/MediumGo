@@ -26,5 +26,13 @@ class FeedViewModel: ViewModel() {
 
     }
 
+
+    fun fetchMyFeed() = viewModelScope.launch {
+        ArticlesRepo.getMyFeed().body()?.let {
+            _feed.postValue(it.articles)
+            Log.d("FEED", "feed fetched ${it.articlesCount}")
+        }
+    }
+
 }
 
