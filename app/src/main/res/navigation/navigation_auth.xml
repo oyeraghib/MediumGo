@@ -10,24 +10,26 @@
         android:id="@+id/loginFragment"
         android:name="com.example.mediumclone.ui.auth.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_login_signup">
 
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.mediumclone.ui.auth.SignupFragment"
         android:label="SignupFragment"
-        tools:layout="@layout/fragment_signup">
+        tools:layout="@layout/fragment_login_signup">
 
     </fragment>
     <action
         android:id="@+id/gotoLoginFragment"
         app:destination="@id/loginFragment"
+        app:popUpTo="@id/navigation_auth"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim" />
     <action
         android:id="@+id/gotoSingupFragment"
         app:destination="@id/signupFragment"
+        app:popUpTo="@id/navigation_auth"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim" />
 </navigation>

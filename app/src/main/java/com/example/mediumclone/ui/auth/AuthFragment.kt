@@ -1,4 +1,4 @@
-package com.example.mediumclone
+package com.example.mediumclone.ui.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import com.example.mediumclone.R
 import com.example.mediumclone.databinding.FragmentAuthBinding
 import com.google.android.material.tabs.TabLayout
 
@@ -24,9 +25,12 @@ class AuthFragment : Fragment() {
     ): View? {
         _binding = FragmentAuthBinding.inflate(inflater, container, false)
 
-       // activity?.let { navController = Navigation.findNavController(it, R.id.authFragmentNavHost) }
+        return _binding?.root
+    }
 
-        _binding?.let { Navigation.findNavController(it.root.findViewById(R.id.authFragmentNavHost)) }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        navController = _binding?.let { Navigation.findNavController(it.root.findViewById(R.id.authFragmentNavHost)) }
 
         _binding?.authTabLayout?.addOnTabSelectedListener(object :TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -34,16 +38,11 @@ class AuthFragment : Fragment() {
                 when(tab?.position){
 
                     0 -> {
-
-                        view?.findNavController()?.navigate(R.id.authFragmentNavHost)
-
+                        navController?.navigate(R.id.gotoLoginFragment)
                     }
 
                     1 -> {
-
-                        view?.findNavController()?.navigate(R.id.authFragmentNavHost)
-
-
+                        navController?.navigate(R.id.gotoSingupFragment)
                     }
                 }
 
@@ -57,10 +56,9 @@ class AuthFragment : Fragment() {
 
 
         })
-
-
-        return _binding?.root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

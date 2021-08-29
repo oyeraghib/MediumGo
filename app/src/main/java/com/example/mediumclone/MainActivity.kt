@@ -3,7 +3,6 @@ package com.example.mediumclone
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,9 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import com.example.mediumclone.databinding.ActivityMainBinding
-import com.example.mediumclone.ui.auth.AuthViewModel
 import io.realworld.api.models.entities.User
 
 class MainActivity : AppCompatActivity() {
@@ -52,14 +49,13 @@ class MainActivity : AppCompatActivity() {
         authViewModel.user.observe({ lifecycle }) {
             updateMenu(it)
             navController.navigateUp()
-            }
+
+        }
     }
 
-    private fun updateMenu(user: User?){
-
-        when(user){
-
-            is User ->{
+    private fun updateMenu(user: User?) {
+        when (user) {
+            is User -> {
                 binding.navView.menu.clear()
                 binding.navView.inflateMenu(R.menu.activity_main_user)
             }

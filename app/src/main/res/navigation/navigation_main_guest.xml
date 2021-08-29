@@ -13,9 +13,15 @@
         tools:layout="@layout/fragment_feed" />
     <fragment
         android:id="@+id/nav_auth"
-        android:name="com.example.mediumclone.AuthFragment"
+        android:name="com.example.mediumclone.ui.auth.AuthFragment"
         android:label="@string/menu_auth"
-        tools:layout="@layout/fragment_auth" />
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_nav_auth_to_nav_feed"
+            app:destination="@id/nav_feed"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
 
 
 </navigation>
