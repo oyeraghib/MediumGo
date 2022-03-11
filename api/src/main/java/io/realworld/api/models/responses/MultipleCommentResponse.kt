@@ -1,11 +1,12 @@
 package io.realworld.api.models.responses
 
+
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import io.realworld.api.models.entities.Comments
+import io.realworld.api.models.entities.Comment
 
 @JsonClass(generateAdapter = true)
-data class CommentsResponse(
+data class MultipleCommentResponse(
     @Json(name = "comments")
-    val comments: List<Comments>
+    val comments: List<Comment>?
 )

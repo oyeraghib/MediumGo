@@ -1,10 +1,7 @@
 package io.realworld.api.service
 
 import io.realworld.api.models.requests.UserUpdateRequest
-import io.realworld.api.models.responses.ArticleResponse
-import io.realworld.api.models.responses.ArticlesResponse
-import io.realworld.api.models.responses.ProfileResponse
-import io.realworld.api.models.responses.UserResponse
+import io.realworld.api.models.responses.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -64,39 +61,40 @@ interface ConduitAuthAPI {
 
     // Delete Articles
     @DELETE("articles/{slug}")
-    suspend fun deleteArticles()
+    suspend fun deleteArticles(
+        @Path("slug") slug: String
+    )
 
     // Adding comments to the Article
     @POST("articles/{slug}/comments")
     suspend fun addComment(
-        @Path("body") body: String
-    )
+        @Query("slug") body: String
+    ): Response<CommentResponse>
 
     // Get all comments from articles
     @GET("articles/{slug}/comments")
     suspend fun readComments(
         @Path("slug") slug: String
-    )
+    ): Response<MultipleCommentResponse>
 
     //Delete comment from the article
     @DELETE("articles/{slug}/comments/{id}")
     suspend fun deleteComment(
         @Path("slug") slug: String,
         @Path("id") id: String
-    )
-
+    ): Response<ArticleResponse>
 
     //Favourite an article
     @POST("article/{slug}/favorite")
     suspend fun favoriteArticle(
         @Path("slug") slug: String
-    ): Response<ArticlesResponse>
+    ): Response<ArticleResponse>
 
     //Unfavourite an article
     @DELETE("article/{slug}/favorite")
     suspend fun unfavoriteArticle(
         @Path("slug") slug: String
-    ): Response<ArticlesResponse>
+    ): Response<ArticleResponse>
 
 
 }
