@@ -10,7 +10,7 @@ import retrofit2.Response
 import retrofit2.http.*
 
 /**
- * It is to access all the requests which does not require Authentication.
+ * It is to access all the requests which does not requires Authentication.
  */
 interface ConduitAPI {
 
