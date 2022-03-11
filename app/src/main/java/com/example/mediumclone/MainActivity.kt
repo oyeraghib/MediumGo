@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.mediumclone.databinding.ActivityMainBinding
+import com.example.mediumclone.ui.auth.AuthViewModel
 import io.realworld.api.models.entities.User
 
 class MainActivity : AppCompatActivity() {

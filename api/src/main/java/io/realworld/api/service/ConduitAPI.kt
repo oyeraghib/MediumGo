@@ -9,36 +9,40 @@ import io.realworld.api.models.responses.UserResponse
 import retrofit2.Response
 import retrofit2.http.*
 
+/**
+ * It is to access all the requests which does not require Authentication.
+ */
 interface ConduitAPI {
 
+    //for registering new users
     @POST("users")
     suspend fun signupUser(
         @Body userCreds: SignupRequest
-    ) : Response<UserResponse>
+    ): Response<UserResponse>
 
+    //for logging in existing user
     @POST("users/login")
     suspend fun loginUser(
         @Body userCreds: LoginRequest
-    ) : Response<UserResponse>
+    ): Response<UserResponse>
 
+    //for getting list of articles in global feed
     @GET("articles")
-     suspend fun getArtciles(
+    suspend fun getArticles(
         @Query("author") author: String? = null,
         @Query("favorited") favorited: String? = null,
         @Query("tags") tag: String? = null
 
     ): Response<ArticlesResponse>
 
-     @GET("articles/{slug}")
-     suspend fun getArticlesBySlug(
-         @Path("slug")slug: String
-     ): Response<ArticleResponse>
 
-     @GET("tags")
-     suspend fun getTags(): Response<TagsResponse>
+    @GET("articles/{slug}")
+    suspend fun getArticlesBySlug(
+        @Path("slug") slug: String
+    ): Response<ArticleResponse>
 
-
-
+    @GET("tags")
+    suspend fun getTags(): Response<TagsResponse>
 
 
 }

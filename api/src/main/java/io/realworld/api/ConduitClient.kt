@@ -8,9 +8,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
+
 object ConduitClient {
 
     var authToken: String? = null
+    const val BASE_URL = "https://conduit.productionready.io/api/"
 
     private val authInterceptor = Interceptor { chain ->
         var req = chain.request()
@@ -24,22 +26,21 @@ object ConduitClient {
 
 
     val okHttpBuilder = OkHttpClient.Builder()
-        .readTimeout(5, TimeUnit.SECONDS)
-        .connectTimeout(2, TimeUnit.SECONDS)
-        .build()
+        .addInterceptor(authInterceptor)
+        .readTimeout(5, TimeUnit.MINUTES)
+        .connectTimeout(2, TimeUnit.MINUTES)
 
     val retrofitBuilder = Retrofit.Builder()
-        .baseUrl("https://conduit.productionready.io/api/")
+        .baseUrl(BASE_URL)
+        .client(okHttpBuilder.build())
         .addConverterFactory(MoshiConverterFactory.create())
 
 
     val publicApi = retrofitBuilder
-        .client(okHttpBuilder)
         .build()
         .create(ConduitAPI::class.java)
 
     val authApi = retrofitBuilder
-        .client(okHttpBuilder)
         .build()
         .create(ConduitAuthAPI::class.java)
 

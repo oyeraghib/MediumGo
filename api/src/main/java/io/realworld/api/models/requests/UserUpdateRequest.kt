@@ -3,10 +3,10 @@ package io.realworld.api.models.requests
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import io.realworld.api.models.entities.User
+import io.realworld.api.models.entities.UserUpdate
 
 @JsonClass(generateAdapter = true)
 data class UserUpdateRequest(
     @Json(name = "user")
-    val user: User?
+    val user: UserUpdate?
 )

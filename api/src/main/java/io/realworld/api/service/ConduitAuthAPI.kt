@@ -1,6 +1,5 @@
 package io.realworld.api.service
 
-import io.realworld.api.models.entities.User
 import io.realworld.api.models.requests.UserUpdateRequest
 import io.realworld.api.models.responses.ArticleResponse
 import io.realworld.api.models.responses.ArticlesResponse
@@ -13,9 +12,9 @@ import java.lang.invoke.StringConcatFactory
 interface ConduitAuthAPI {
 
     @GET("user")
-    suspend fun getCurrentUser(): Response<UserResponse>
+    suspend fun getCurrentUser() : Response<UserResponse>
 
-    @POST("user")
+    @PUT("user")
     suspend fun updateCurrentUser(
         @Body userUpdateRequest : UserUpdateRequest
     ): Response<UserResponse>
@@ -36,7 +35,7 @@ interface ConduitAuthAPI {
     )
 
     @GET("articles/feed")
-    suspend fun getFeedArticles(): Response<ArticlesResponse>
+    suspend fun getMyFededArticles(): Response<ArticlesResponse>
 
     @POST("article/{slug}/favorite")
     suspend fun favoriteArticle(

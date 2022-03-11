@@ -11,11 +11,13 @@ data class User(
     @Json(name = "email")
     val email: String?,
     @Json(name = "image")
-    val image: Any?,
-    @Json(name = "token")
-    val token: String?,
+    val image: String?,
     @Json(name = "username")
     val username: String?,
+    @Json(name = "token")
+    val token: String?,
     @Json(name = "password")
-    val password: String?
+    val pass: String?
+
+
 )

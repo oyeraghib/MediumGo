@@ -1,11 +1,11 @@
 package io.realworld.api.models.entities
 
-
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+
 @JsonClass(generateAdapter = true)
-data class UserUpdateData(
+data class UserUpdate(
     @Json(name = "bio")
     val bio: String?,
     @Json(name = "email")
@@ -15,5 +15,5 @@ data class UserUpdateData(
     @Json(name = "username")
     val username: String?,
     @Json(name = "password")
-    val password: String?
-)
+    val password: String?,
+    )

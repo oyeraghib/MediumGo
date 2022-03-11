@@ -1,4 +1,4 @@
-package com.example.mediumclone
+package com.example.mediumclone.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 class AuthViewModel: ViewModel() {
 
     private val _user = MutableLiveData<User?>()
-
     val user: LiveData<User?> get() = _user
+
 
     fun login(email: String, password: String) = viewModelScope.launch {
         UserRepo.login(email, password)?.let {
@@ -23,6 +23,19 @@ class AuthViewModel: ViewModel() {
 
     fun signup(username: String, email: String, password: String ) = viewModelScope.launch {
         UserRepo.signUp(username, email, password)?.let {
+            _user.postValue(it)
+        }
+    }
+
+    fun update(
+        bio: String?,
+        username: String?,
+        image: String?,
+        email: String?,
+        password: String?
+    ) =
+        viewModelScope.launch {
+        UserRepo.updateUser(bio, username, image, email, password)?.let {
             _user.postValue(it)
         }
     }

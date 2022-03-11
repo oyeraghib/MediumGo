@@ -7,8 +7,8 @@ object ArticlesRepo {
     val api = ConduitClient.publicApi
     val authAPI = ConduitClient.authApi
 
-        suspend fun getGlobalFeed() = api.getArtciles()
-
-        suspend fun getMyFeed() = authAPI.getFeedArticles()
-
+        suspend fun getGlobalFeed() = api.getArticles().body()?.articles
+        suspend fun getMyFeed() = authAPI.getMyFededArticles().body()?.articles
 }
+
+

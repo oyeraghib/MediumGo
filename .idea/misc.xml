@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Open Source/MediumClone/app/src/main/res/layout/activity_main.xml" value="0.1911231884057971" />
+        <entry key="..\:/Android Open Source/MediumClone/app/src/main/res/layout/content_main.xml" value="0.1911231884057971" />
+        <entry key="..\:/Android Open Source/MediumClone/app/src/main/res/layout/fragment_auth.xml" value="0.1911231884057971" />
+        <entry key="..\:/Android Open Source/MediumClone/app/src/main/res/layout/fragment_feed.xml" value="0.20244565217391305" />
+        <entry key="..\:/Projects Apps/MediumClone/app/src/main/res/layout/fragment_auth.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable-v24/ic_menu_auth_login.xml" value="0.159375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable-v24/ic_menu_auth_signup.xml" value="0.159375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable/ic_menu_auth.xml" value="0.159375" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable/ic_menu_settings.xml" value="0.2703125" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/drawable/sample_profile.xml" value="0.2601851851851852" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/font/.xml" value="0.284375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/activity_main.xml" value="0.176" />
@@ -16,6 +22,7 @@
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_home.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_login.xml" value="0.2375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_login_signup.xml" value="0.19375" />
+        <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_sign_up.xml" value="0.2375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_signup.xml" value="0.2375" />
         <entry key="..\:/Users/raghi/AndroidStudioProjects/MediumClone/app/src/main/res/layout/fragment_sing_up.xml" value="0.2375" />

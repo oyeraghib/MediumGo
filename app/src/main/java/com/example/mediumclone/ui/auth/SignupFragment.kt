@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import com.example.mediumclone.AuthViewModel
 import com.example.mediumclone.databinding.FragmentLoginSignupBinding
 
 class SignupFragment: Fragment() {
@@ -42,10 +39,7 @@ class SignupFragment: Fragment() {
                     etPassword.text.toString()
                     )
             }
-        }
 
-        authViewModel.user.observe({lifecycle}) {
-            Toast.makeText(requireContext(), "Signed In as ${it?.username}", Toast.LENGTH_LONG).show()
         }
     }
 

@@ -1,7 +1,7 @@
 package io.realworld.api
 
+import io.realworld.api.models.entities.User
 import io.realworld.api.models.requests.SignupRequest
-import io.realworld.api.models.requests.UserCreds
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -11,8 +11,6 @@ import kotlin.random.Random
 
 class ConduitClientTest {
 
-    private val conduitClient = ConduitClient()
-
 
     //Test for Articles
     @Test
@@ -20,9 +18,8 @@ class ConduitClientTest {
 
         runBlocking {
 
-            val articles = conduitClient.api.getArtciles()
+            val articles = ConduitClient.publicApi.getArticles()
             assertNotNull(articles.body()?.articles)
-
         }
 
     }
@@ -33,7 +30,7 @@ class ConduitClientTest {
 
         runBlocking {
 
-            val articles = conduitClient.api.getArtciles(author = "cy271839439")
+            val articles =  ConduitClient.publicApi.getArticles(author = "cy271839439")
             assertNotNull(articles.body()?.articles)
 
         }
@@ -46,7 +43,7 @@ class ConduitClientTest {
 
         runBlocking {
 
-            val articles = conduitClient.api.getArtciles(tag = "butts")
+            val articles =  ConduitClient.publicApi.getArticles(tag = "butts")
             assertNotNull(articles.body()?.articles)
 
         }
@@ -54,20 +51,25 @@ class ConduitClientTest {
 
 
 
-    //Test for user signUp
+//    //Test for user signUp
+//    @Test
+//    fun `POST users - create user`() {
+//
+//        runBlocking {
+//
+//            val userCreds = User(
+//                email = "testemail${Random.nextInt(999, 9999)}@test.com",
+//                pass = "pass${Random.nextInt(999,99999)}"
+//            )
+//
+//            val resp =  ConduitClient.publicApi.signupUser(SignupRequest(userCreds))
+//            assertEquals(userCreds.username, resp.body()?.user?.username)
+//        }
+//    }
+
     @Test
-    fun `POST users - create user`() {
+    fun `get My feed Articles`() {
 
-        runBlocking {
-
-            val userCreds = UserCreds(
-                email = "testemail${Random.nextInt(999, 9999)}@test.com",
-                password = "pass${Random.nextInt(999,99999)}"
-            )
-
-            val resp = conduitClient.api.signupUser(SignupRequest(userCreds))
-            assertEquals(userCreds.username, resp.body()?.user?.username)
-        }
     }
 }
 

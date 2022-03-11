@@ -11,6 +11,8 @@
     <string name="menu_my_feed">My Feed</string>
 
     <string name="menu_auth">Login / SignUp</string>
+    <string name="menu_settings">Settings</string>
+
 
 
     <string name="menu_home">Home</string>
