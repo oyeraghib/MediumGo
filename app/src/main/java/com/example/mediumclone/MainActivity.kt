@@ -2,17 +2,17 @@ package com.example.mediumclone
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.mediumclone.databinding.ActivityMainBinding
 import com.example.mediumclone.ui.auth.AuthViewModel
+import com.google.android.material.navigation.NavigationView
 import io.realworld.api.models.entities.User
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             navController.navigateUp()
 
         }
+        setContentView(binding.root)
     }
 
     private fun updateMenu(user: User?) {
