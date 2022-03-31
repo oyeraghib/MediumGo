@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-
+        setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             navController.navigateUp()
 
         }
-        setContentView(binding.root)
+
     }
 
     private fun updateMenu(user: User?) {

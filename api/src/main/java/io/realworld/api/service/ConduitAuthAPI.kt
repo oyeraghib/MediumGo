@@ -2,6 +2,7 @@ package io.realworld.api.service
 
 import io.realworld.api.models.requests.UserUpdateRequest
 import io.realworld.api.models.responses.*
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -41,7 +42,8 @@ interface ConduitAuthAPI {
 
     // Show articles in feed from users you follow
     @GET("articles/feed")
-    suspend fun getMyFeedArticle(): Response<ArticlesResponse>
+    suspend fun getMyFeedArticle(
+    ): Response<ArticlesResponse>
 
     // Used for creating articles in the feed
     //title, description and body are required parameters
@@ -90,9 +92,9 @@ interface ConduitAuthAPI {
         @Path("slug") slug: String
     ): Response<ArticleResponse>
 
-    //Unfavourite an article
+    //Un-favourite an article
     @DELETE("article/{slug}/favorite")
-    suspend fun unfavoriteArticle(
+    suspend fun unfavouriteArticles(
         @Path("slug") slug: String
     ): Response<ArticleResponse>
 

@@ -24,18 +24,18 @@ class ConduitClientTest {
 
     }
 
-    //Test for Articles by author
+    //Test for Articles by author (global feed)
     @Test
     fun `get Articles by author`() {
 
         runBlocking {
 
-            val articles =  ConduitClient.publicApi.getArticles(author = "cy271839439")
+            val articles = ConduitClient.publicApi.getArticles(author = "cy271839439")
             assertNotNull(articles.body()?.articles)
 
         }
-
     }
+
 
     //Test for Articles by tags
     @Test
@@ -43,33 +43,10 @@ class ConduitClientTest {
 
         runBlocking {
 
-            val articles =  ConduitClient.publicApi.getArticles(tag = "butts")
+            val articles = ConduitClient.publicApi.getArticles(tag = "butts")
             assertNotNull(articles.body()?.articles)
 
         }
-    }
-
-
-
-//    //Test for user signUp
-//    @Test
-//    fun `POST users - create user`() {
-//
-//        runBlocking {
-//
-//            val userCreds = User(
-//                email = "testemail${Random.nextInt(999, 9999)}@test.com",
-//                pass = "pass${Random.nextInt(999,99999)}"
-//            )
-//
-//            val resp =  ConduitClient.publicApi.signupUser(SignupRequest(userCreds))
-//            assertEquals(userCreds.username, resp.body()?.user?.username)
-//        }
-//    }
-
-    @Test
-    fun `get My feed Articles`() {
-
     }
 }
 

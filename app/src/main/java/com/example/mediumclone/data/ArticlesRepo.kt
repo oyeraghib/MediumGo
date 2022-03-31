@@ -10,5 +10,3 @@ object ArticlesRepo {
         suspend fun getGlobalFeed() = api.getArticles().body()?.articles
         suspend fun getMyFeed() = authAPI.getMyFeedArticle().body()?.articles
 }
-
-

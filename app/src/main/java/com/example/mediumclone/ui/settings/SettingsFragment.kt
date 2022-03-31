@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.example.mediumclone.ui.auth.AuthViewModel
 import com.example.mediumclone.databinding.FragmentSettingsBinding
 
 class SettingsFragment: Fragment() {
 
-    private var _binding: FragmentSettingsBinding? = null
-    private val authViewModel by activityViewModels<AuthViewModel>()
+    lateinit var _binding: FragmentSettingsBinding
+    private lateinit var authViewModel: AuthViewModel
 
 
     override fun onCreateView(
@@ -21,8 +23,9 @@ class SettingsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return _binding?.root
+        return _binding.root
 
     }
 
@@ -31,18 +34,18 @@ class SettingsFragment: Fragment() {
 
         authViewModel.user.observe(viewLifecycleOwner) {
 
-            _binding?.apply {
+            _binding.apply {
 
                 etBio.setText(it?.bio ?: "")
-                etProfileUrl.setText(it?.image ?: "")
                 etUsername.setText(it?.username ?: "")
+                etProfileUrl.setText(it?.image ?: "")
                 etEmail.setText(it?.email ?: "")
 
             }
 
         }
 
-        _binding?.apply {
+        _binding.apply {
             btnUpdate.setOnClickListener {
                 authViewModel.update(
                     bio = etBio.text.toString(),
@@ -55,5 +58,9 @@ class SettingsFragment: Fragment() {
             }
 
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }

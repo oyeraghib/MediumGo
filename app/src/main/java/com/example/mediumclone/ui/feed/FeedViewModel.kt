@@ -13,20 +13,21 @@ import kotlinx.coroutines.launch
 
 class FeedViewModel: ViewModel() {
 
+    val repo = ArticlesRepo
 
     private val _feed = MutableLiveData<List<Article>>()
 
     val feed: LiveData<List<Article>> = _feed
 
     fun fetchGlobalFeed() = viewModelScope.launch {
-        ArticlesRepo.getGlobalFeed().let {
+        repo.getGlobalFeed().let {
             _feed.postValue(it)
         }
 
     }
 
     fun fetchMyFeed() = viewModelScope.launch {
-        ArticlesRepo.getMyFeed().let {
+        repo.getMyFeed().let {
             _feed.postValue(it)
         }
     }
