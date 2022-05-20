@@ -12,24 +12,24 @@ import com.example.mediumclone.databinding.FragmentLoginSignupBinding
 class LoginFragment: Fragment() {
 
 
-    private var _binding: FragmentLoginSignupBinding? = null
+    private lateinit var _binding: FragmentLoginSignupBinding
     val authViewModel: AuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginSignupBinding.inflate(inflater, container, false)
 
-        _binding?.etUsername?.isVisible = false
-        return _binding?.root
+        _binding.etUsername.isVisible = false
+        return _binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding?.apply {
+        _binding.apply {
             btnSubmit.setOnClickListener {
                 authViewModel.login(
                     etEmail.text.toString(),
@@ -38,11 +38,5 @@ class LoginFragment: Fragment() {
             }
 
         }
-    }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
